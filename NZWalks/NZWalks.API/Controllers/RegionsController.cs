@@ -88,6 +88,60 @@ namespace NZWalks.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = regionDto.Id }, regionDto);
         }
 
+        [HttpPut]
+        [Route("{id:guid}")]
+        public IActionResult Update(Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
+        {
+            var regionDomainModel = dbContext.Regions.FirstOrDefault(x => x.Id == id);
+            if(regionDomainModel == null)
+            {
+                return NotFound();
+            }
+
+            //Map Dto to DomainModel
+            regionDomainModel.Name = updateRegionRequestDto.Name;
+            regionDomainModel.Code = updateRegionRequestDto.Code;
+            regionDomainModel.RegionImageUrl = updateRegionRequestDto.RegionImageUrl;
+
+            dbContext.SaveChanges();
+
+            //Convert DomainModel to Dto
+            var regionDto = new RegionDto
+            {
+                Id = regionDomainModel.Id,
+                Code = regionDomainModel.Code,
+                Name = regionDomainModel.Name,
+                RegionImageUrl = regionDomainModel.RegionImageUrl
+            };
+            return Ok();
+
+        }
+
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public IActionResult Delete(Guid id)
+        {
+            var regionDomainModel = dbContext.Regions.Find(id);
+            if(regionDomainModel == null)
+            {
+                return NotFound();
+            }
+
+            dbContext.Regions.Remove(regionDomainModel);
+            dbContext.SaveChanges();
+
+            //Convert Domain Model to Dto and send it back to the user
+            var regionDto = new RegionDto
+            {
+                Id = regionDomainModel.Id,
+                Name = regionDomainModel.Name,
+                Code = regionDomainModel.Code,
+                RegionImageUrl = regionDomainModel.RegionImageUrl,
+            };
+            return Ok(regionDto);
+        }
+
+
 
 
     }
