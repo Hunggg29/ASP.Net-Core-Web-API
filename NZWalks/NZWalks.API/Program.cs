@@ -12,7 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<NZWalksDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("NZWalksConnectionString")));
+
 builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
+builder.Services.AddScoped<IWalkRepository, SQLWalkRepository>();
+
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
 var app = builder.Build();

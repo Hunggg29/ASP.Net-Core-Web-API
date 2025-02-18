@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NZWalks.API.CustomActionFilters;
 using NZWalks.API.Data;
 using NZWalks.API.Models.Domain;
 using NZWalks.API.Models.DTO;
@@ -63,33 +64,43 @@ namespace NZWalks.API.Controllers
         }
 
         [HttpPost]
+        [ValidateModel]
         public async Task<IActionResult> Create([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
-            //Map DTOs to Domain Models
-            var regionDomainModel = mapper.Map<Region>(addRegionRequestDto);
+            
+                //Map DTOs to Domain Models
+                var regionDomainModel = mapper.Map<Region>(addRegionRequestDto);
 
-            regionDomainModel = await regionRepository.CreateAsync(regionDomainModel);
+                regionDomainModel = await regionRepository.CreateAsync(regionDomainModel);
 
-            //Map Domain Model back to Dto
-            var regionDto = mapper.Map<RegionDto>(regionDomainModel);
-            return CreatedAtAction(nameof(GetById), new { id = regionDto.Id }, regionDto);
+                //Map Domain Model back to Dto
+                var regionDto = mapper.Map<RegionDto>(regionDomainModel);
+                return CreatedAtAction(nameof(GetById), new { id = regionDto.Id }, regionDto);
+            
+    
+            
         }
 
         [HttpPut]
         [Route("{id:guid}")]
+        [ValidateModel]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
         {
-            //Map updateRegionRequestDto to domain model
-            var regionDomainModel = mapper.Map<Region>(updateRegionRequestDto);
-            regionDomainModel = await regionRepository.UpdateAsync(id, regionDomainModel);
+            
+                //Map updateRegionRequestDto to domain model
+                var regionDomainModel = mapper.Map<Region>(updateRegionRequestDto);
+                regionDomainModel = await regionRepository.UpdateAsync(id, regionDomainModel);
 
-            if(regionDomainModel == null)
-            {
-                return NotFound();
-            }
+                if (regionDomainModel == null)
+                {
+                    return NotFound();
+                }
 
-            //Convert DomainModel to Dto
-            return Ok(mapper.Map<RegionDto>(regionDomainModel));
+                //Convert DomainModel to Dto
+                return Ok(mapper.Map<RegionDto>(regionDomainModel));
+            
+       
+            
 
         }
 
