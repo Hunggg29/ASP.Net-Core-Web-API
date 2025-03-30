@@ -143,3 +143,12 @@ C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Deb
 C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
+C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.dll
+C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.AspNetCore.dll
+C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+C:\Users\hungm\Documents\GitHub\ASP.Net-Core-Web-API\NZWalks\NZWalks.API\bin\Debug\net8.0\Serilog.Sinks.File.dll
